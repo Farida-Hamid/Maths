@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.css';
+import Calculator from './components/Calculator';
 
-function App() {
-  return (
-    <p>
-      Cleanedup React App
-    </p>
-  );
+class App extends React.PureComponent {
+  render() {
+    return (
+      <Calculator />
+    );
+  }
 }
 
 export default App;
