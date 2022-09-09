@@ -1,5 +1,5 @@
 import React from 'react';
-import calculate from './logic/calculate'
+import calculate from './logic/calculate';
 
 class Calculator extends React.PureComponent {
   constructor(props) {
@@ -7,27 +7,27 @@ class Calculator extends React.PureComponent {
     this.state = {
       next: 0,
       total: 0,
-      operation: null
+      operation: null,
     };
+
     this.clickHandler = this.clickHandler.bind(this);
-    this.displayHandler = this.displayHandler.bind(this);
   }
 
   clickHandler(e) {
-    console.log('caclulating', this.state, e.target.value);
     const result = calculate(this.state, e.target.value);
-    console.log('result', result);
-    this.setState({
+
+    this.setState(() => ({
       next: result.next,
       total: result.total,
-      operation: result.operation
-    });
+      operation: result.operation,
+    }));
   }
 
   render() {
+    const curretState = this.state;
     return (
       <div className="calculator">
-        <div className="screen">{this.state.next || this.state.total || 0}</div>
+        <div className="screen">{curretState.next || curretState.total || 0}</div>
         <div className="row">
           <button type="button" onClick={this.clickHandler} value="AC" className="gray">AC</button>
           <button type="button" onClick={this.clickHandler} value="+/-" className="gray">+/-</button>
