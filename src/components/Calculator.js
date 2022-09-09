@@ -9,7 +9,6 @@ class Calculator extends React.PureComponent {
       total: 0,
       operation: null
     };
-
     this.clickHandler = this.clickHandler.bind(this);
     this.displayHandler = this.displayHandler.bind(this);
   }
@@ -25,13 +24,10 @@ class Calculator extends React.PureComponent {
     });
   }
 
-  displayHandler() {
-  }
-
   render() {
     return (
       <div className="calculator">
-        <div className="screen">0</div>
+        <div className="screen">{this.state.next || this.state.total || 0}</div>
         <div className="row">
           <button type="button" onClick={this.clickHandler} value="AC" className="gray">AC</button>
           <button type="button" onClick={this.clickHandler} value="+/-" className="gray">+/-</button>
